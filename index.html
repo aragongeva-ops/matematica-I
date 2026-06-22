@@ -2,85 +2,135 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Portafolio - GEVA</title>
+  <title>Portafolio - GEVA</title>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
       background: #f4f4f4;
     }
 
-    header {
+    /* MENÚ */
+    nav {
       background: #1e88e5;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       color: white;
-      padding: 20px;
-      text-align: center;
     }
 
+    nav .logo {
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* CONTENIDO */
     .container {
       max-width: 900px;
-      margin: auto;
+      margin: 100px auto 20px auto;
       padding: 20px;
     }
 
-    .card {
+    section {
       background: white;
-      padding: 15px;
-      margin: 10px 0;
+      padding: 20px;
+      margin-bottom: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     h2 {
       color: #1e88e5;
+      margin-bottom: 10px;
     }
 
     footer {
       text-align: center;
       padding: 15px;
       background: #ddd;
-      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Mi Portafolio Personal</h1>
-  <p>Estudiante de Matemática - GEVA</p>
-</header>
+<!-- MENÚ -->
+<nav>
+  <div class="logo">GEVA</div>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre">Sobre mí</a></li>
+    <li><a href="#tareas">Tareas</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
 
 <div class="container">
 
-  <div class="card">
-    <h2>📌 Sobre mí</h2>
-    <p>Hola, soy estudiante y este es mi portafolio donde subo tareas, proyectos y trabajos del curso.</p>
-  </div>
+  <section id="inicio">
+    <h2>🏠 Inicio</h2>
+    <p>Bienvenido a mi portafolio personal.</p>
+  </section>
 
-  <div class="card">
+  <section id="sobre">
+    <h2>📌 Sobre mí</h2>
+    <p>Soy estudiante y aquí muestro mis trabajos, tareas y proyectos del curso.</p>
+  </section>
+
+  <section id="tareas">
     <h2>📚 Tareas</h2>
     <ul>
-      <li>✔ Trabajo de Centroide en GeoGebra</li>
-      <li>✔ Proyecto de funciones</li>
-      <li>✔ Ejercicios de matemáticas</li>
+      <li>Centroide en GeoGebra</li>
+      <li>Funciones matemáticas</li>
+      <li>Ejercicios del curso</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="card">
+  <section id="proyectos">
     <h2>💻 Proyectos</h2>
-    <p>Aquí irán mis proyectos web del curso.</p>
-  </div>
+    <p>Aquí irán mis proyectos web.</p>
+  </section>
 
-  <div class="card">
+  <section id="contacto">
     <h2>📞 Contacto</h2>
     <p>Email: aragongeva@gmail.com</p>
-  </div>
+  </section>
 
 </div>
 
 <footer>
-  © 2026 - Mi Portafolio
+  © 2026 - Portafolio GEVA
 </footer>
 
 </body>
