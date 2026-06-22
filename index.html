@@ -12,6 +12,10 @@
       font-family: Arial, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #f4f4f4;
     }
@@ -28,6 +32,7 @@
       justify-content: space-between;
       align-items: center;
       color: white;
+      z-index: 1000;
     }
 
     nav .logo {
@@ -38,10 +43,6 @@
       list-style: none;
       display: flex;
       gap: 15px;
-    }
-
-    nav ul li {
-      display: inline;
     }
 
     nav ul li a {
@@ -67,6 +68,16 @@
       margin-bottom: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+      /* animación base */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -132,6 +143,25 @@
 <footer>
   © 2026 - Portafolio GEVA
 </footer>
+
+<script>
+  // Animación al hacer scroll
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
 
 </body>
 </html>
