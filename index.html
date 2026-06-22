@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio - GEVA</title>
 
   <style>
@@ -55,6 +56,13 @@
       text-decoration: underline;
     }
 
+    /* BOTÓN MENÚ (MÓVIL) */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
     /* CONTENIDO */
     .container {
       max-width: 900px;
@@ -69,7 +77,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-      /* animación base */
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.6s ease;
@@ -90,6 +97,34 @@
       padding: 15px;
       background: #ddd;
     }
+
+    /* 📱 RESPONSIVE */
+    @media (max-width: 768px) {
+
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #1e88e5;
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        padding: 10px 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
   </style>
 </head>
 
@@ -98,6 +133,8 @@
 <!-- MENÚ -->
 <nav>
   <div class="logo">GEVA</div>
+  <div class="menu-toggle">☰</div>
+
   <ul>
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#sobre">Sobre mí</a></li>
@@ -116,7 +153,7 @@
 
   <section id="sobre">
     <h2>📌 Sobre mí</h2>
-    <p>Soy estudiante y aquí muestro mis trabajos, tareas y proyectos del curso.</p>
+    <p>Soy estudiante y aquí muestro mis trabajos, tareas y proyectos.</p>
   </section>
 
   <section id="tareas">
@@ -145,7 +182,7 @@
 </footer>
 
 <script>
-  // Animación al hacer scroll
+  // Animaciones scroll
   const sections = document.querySelectorAll("section");
 
   const observer = new IntersectionObserver(entries => {
@@ -154,12 +191,16 @@
         entry.target.classList.add("show");
       }
     });
-  }, {
-    threshold: 0.2
-  });
+  }, { threshold: 0.2 });
 
-  sections.forEach(section => {
-    observer.observe(section);
+  sections.forEach(sec => observer.observe(sec));
+
+  // Menú móvil
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("nav ul");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
   });
 </script>
 
