@@ -1,207 +1,412 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - GEVA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio - GEVA</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-    body {
-      background: #f4f4f4;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    /* MENÚ */
-    nav {
-      background: #1e88e5;
-      padding: 15px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      z-index: 1000;
-    }
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
 
-    nav .logo {
-      font-weight: bold;
-    }
+/* EFECTOS DE FONDO */
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
+.glow1,
+.glow2{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(160px);
+    z-index:-1;
+}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.glow1{
+    width:450px;
+    height:450px;
+    background:#8B5CF6;
+    top:-120px;
+    left:-120px;
+    opacity:.18;
+}
 
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
+.glow2{
+    width:400px;
+    height:400px;
+    background:#C084FC;
+    bottom:-150px;
+    right:-100px;
+    opacity:.12;
+}
 
-    /* BOTÓN MENÚ (MÓVIL) */
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
+/* MENU */
 
-    /* CONTENIDO */
-    .container {
-      max-width: 900px;
-      margin: 100px auto 20px auto;
-      padding: 20px;
-    }
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    backdrop-filter:blur(12px);
+    background:rgba(5,5,5,.75);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:1000;
+}
 
-    section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.logo{
+    font-size:1.3rem;
+    font-weight:700;
+    letter-spacing:2px;
+}
 
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
 
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
 
-    h2 {
-      color: #1e88e5;
-      margin-bottom: 10px;
-    }
+nav a:hover{
+    color:#C084FC;
+}
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #ddd;
-    }
+/* HERO */
 
-    /* 📱 RESPONSIVE */
-    @media (max-width: 768px) {
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 8% 50px;
+}
 
-      nav ul {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background: #1e88e5;
-        width: 100%;
-        flex-direction: column;
-        display: none;
-        padding: 10px 0;
-      }
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
 
-      nav ul.active {
-        display: flex;
-      }
+.hero-image img{
+    width:100%;
+    max-width:450px;
+    border-radius:35px;
+    box-shadow:0 0 40px rgba(139,92,246,.25);
+    transition:.4s;
+}
 
-      nav ul li {
-        text-align: center;
-        padding: 10px 0;
-      }
+.hero-image img:hover{
+    transform:scale(1.03);
+}
 
-      .menu-toggle {
-        display: block;
-      }
-    }
-  </style>
+.hero-text h1{
+    font-size:clamp(3rem,8vw,7rem);
+    line-height:.95;
+    font-weight:900;
+}
+
+.hero-text span{
+    color:#C084FC;
+}
+
+.hero-text p{
+    margin-top:25px;
+    color:#bdbdbd;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    background:#8B5CF6;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* SECCIONES */
+
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+section{
+    margin-bottom:80px;
+}
+
+.card{
+    background:#111;
+    border:1px solid rgba(255,255,255,.05);
+    padding:30px;
+    border-radius:25px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#C084FC;
+}
+
+/* GALERIA */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.trabajo{
+    background:#111;
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.05);
+    transition:.4s;
+}
+
+.trabajo:hover{
+    transform:translateY(-8px);
+}
+
+.trabajo img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.trabajo h3{
+    padding:15px;
+}
+
+.trabajo p{
+    padding:0 15px 20px;
+    color:#bdbdbd;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#888;
+}
+
+/* ANIMACIONES */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-content{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero-image{
+    order:-1;
+}
+
+nav{
+    padding:18px 5%;
+}
+
+nav ul{
+    gap:15px;
+    font-size:.9rem;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- MENÚ -->
-<nav>
-  <div class="logo">GEVA</div>
-  <div class="menu-toggle">☰</div>
+<div class="glow1"></div>
+<div class="glow2"></div>
 
-  <ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#sobre">Sobre mí</a></li>
-    <li><a href="#tareas">Tareas</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
+<nav>
+    <div class="logo">GEVA</div>
+
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
 </nav>
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="hero-image">
+<img src="imagenes/perfil.jpg" alt="Perfil">
+</div>
+
+<div class="hero-text">
+<h1>CREATIVE <span>PORTFOLIO</span></h1>
+
+<p>
+Hola, soy GEVA. Este espacio reúne mis tareas,
+proyectos académicos, prácticas y trabajos
+realizados durante mis estudios.
+</p>
+
+<a href="#galeria" class="btn">
+Ver Trabajos
+</a>
+
+</div>
+
+</div>
+
+</section>
 
 <div class="container">
 
-  <section id="inicio">
-    <h2>🏠 Inicio</h2>
-    <p>Bienvenido a mi portafolio personal.</p>
-  </section>
+<section id="sobre" class="reveal">
+<div class="card">
+<h2>Sobre mí</h2>
 
-  <section id="sobre">
-    <h2>📌 Sobre mí</h2>
-    <p>Soy estudiante y aquí muestro mis trabajos, tareas y proyectos.</p>
-  </section>
+<p>
+Soy estudiante y utilizo este portafolio para
+mostrar mis proyectos, tareas, prácticas y
+evidencias de aprendizaje.
+</p>
 
-  <section id="tareas">
-    <h2>📚 Tareas</h2>
-    <ul>
-      <li>Centroide en GeoGebra</li>
-      <li>Funciones matemáticas</li>
-      <li>Ejercicios del curso</li>
-    </ul>
-  </section>
+</div>
+</section>
 
-  <section id="proyectos">
-    <h2>💻 Proyectos</h2>
-    <p>Aquí irán mis proyectos web.</p>
-  </section>
+<section id="trabajos" class="reveal">
 
-  <section id="contacto">
-    <h2>📞 Contacto</h2>
-    <p>Email: aragongeva@gmail.com</p>
-  </section>
+<div class="card">
+
+<h2>Trabajos Destacados</h2>
+
+<ul style="line-height:2;">
+<li>Centroide con GeoGebra</li>
+<li>Funciones Matemáticas</li>
+<li>Diseño Web HTML y CSS</li>
+<li>Proyectos Académicos</li>
+<li>Presentaciones y Documentales</li>
+</ul>
+
+</div>
+
+</section>
+
+<section id="galeria" class="reveal">
+
+<h2>Galería de Trabajos</h2>
+
+<div class="galeria">
+
+<div class="trabajo">
+<img src="imagenes/centroide.jpg" alt="">
+<h3>Centroide GeoGebra</h3>
+<p>Aplicación práctica de conceptos matemáticos.</p>
+</div>
+
+<div class="trabajo">
+<img src="imagenes/geogebra.jpg" alt="">
+<h3>Funciones</h3>
+<p>Representación gráfica y análisis.</p>
+</div>
+
+<div class="trabajo">
+<img src="imagenes/proyecto-web.jpg" alt="">
+<h3>Proyecto Web</h3>
+<p>Diseño y desarrollo con HTML y CSS.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contacto" class="reveal">
+
+<div class="card">
+
+<h2>Contacto</h2>
+
+<p>
+Correo:
+aragongeva@gmail.com
+</p>
+
+</div>
+
+</section>
 
 </div>
 
 <footer>
-  © 2026 - Portafolio GEVA
+© 2026 · Portafolio GEVA
 </footer>
 
 <script>
-  // Animaciones scroll
-  const sections = document.querySelectorAll("section");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.2 });
+const reveals=document.querySelectorAll('.reveal');
 
-  sections.forEach(sec => observer.observe(sec));
+window.addEventListener('scroll',()=>{
 
-  // Menú móvil
-  const toggle = document.querySelector(".menu-toggle");
-  const menu = document.querySelector("nav ul");
+reveals.forEach(element=>{
 
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
+let top=element.getBoundingClientRect().top;
+
+if(top < window.innerHeight-100){
+element.classList.add('active');
+}
+
+});
+
+});
+
 </script>
 
 </body>
