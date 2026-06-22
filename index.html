@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Matemática I | Ingeniería de Sistemas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #0D0C10; --glow: #A992C4; --white: #FFFFFF; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; }
+    .font-hero { font-family: 'Archivo Black', sans-serif; }
+    .glow-bg { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(169,146,196,0.2) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .evidence-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(169,146,196,0.2); }
+    .evidence-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(169,146,196,0.3); border-color: var(--glow); }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .station-number { font-family: 'Archivo Black', sans-serif; font-size: clamp(5rem, 15vw, 12rem); color: rgba(169,146,196,0.07); position: absolute; top: -2rem; right: -1rem; line-height: 1; z-index: -1; }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- LUCES DE FONDO -->
+  <div class="glow-bg" style="width:600px; height:600px; top:-10%; left:-10%;"></div>
+  <div class="glow-bg" style="width:800px; height:800px; bottom:10%; right:-10%;"></div>
+
+  <!-- HERO SECTION -->
+  <header class="min-h-screen flex items-center justify-center relative px-6">
+    <div class="max-w-5xl w-full text-center relative z-10">
+      <p class="text-lavender uppercase tracking-[0.5em] text-xs mb-4" style="color: #A992C4;">Ingeniería de Sistemas • UNI</p>
+      <h1 class="font-hero text-6xl md:text-9xl leading-none mb-6">MATEMÁTICA <br><span style="color: #A992C4;">I</span></h1>
+      <p class="text-lg md:text-xl opacity-70 max-w-2xl mx-auto leading-relaxed">
+        Un recorrido visual por los fundamentos del cálculo diferencial e integral que construyen el pensamiento ingenieril. 13 semanas de transformación técnica.
+      </p>
+      <div class="mt-12 animate-bounce">
+        <span class="text-xs uppercase tracking-widest opacity-40">Desliza para explorar ↓</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO SECTION -->
+  <section class="py-24 px-6 fade-in">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-hero text-3xl mb-6">El Recorrido Comienza</h2>
+      <p class="opacity-70 leading-relaxed text-lg">
+        13 semanas. 3 unidades. Un solo objetivo: dominar el lenguaje matemático que alimenta la ingeniería de sistemas. Cada estación es una prueba de evolución intelectual.
+      </p>
+    </div>
+  </section>
+
+  <!-- SEMANAS GRID -->
+  <main class="max-w-7xl mx-auto px-6 py-20 space-y-32">
+    
+    <!-- SEMANA 01 (Ejemplo de Layout A) -->
+    <div class="relative grid md:grid-cols-2 gap-12 items-center fade-in">
+      <div class="station-number">01</div>
+      <div>
+        <p class="text-xs uppercase tracking-widest mb-2" style="color: #A992C4;">Semana 01 — Fundamentos</p>
+        <h3 class="font-hero text-4xl mb-4">El Origen: Lógica & Conjuntos</h3>
+        <p class="opacity-70 mb-6">Exploración de la base axiomática: proposiciones, conectivos lógicos, operaciones con conjuntos y su representación visual.</p>
+        <a href="#" class="inline-block px-6 py-3 rounded-full border border-[#A992C4] text-[#A992C4] hover:bg-[#A992C4] hover:text-white transition-all text-sm font-bold">Ver Evidencia PDF</a>
+      </div>
+      <div class="evidence-card rounded-3xl overflow-hidden bg-gray-900 h-64 flex items-center justify-center">
+         <p class="text-gray-500 text-sm">[Sube aquí tu captura de Lógica]</p>
+      </div>
+    </div>
+
+    <!-- SEMANA 02 (Ejemplo de Layout B - Invertido) -->
+    <div class="relative grid md:grid-cols-2 gap-12 items-center fade-in">
+      <div class="station-number" style="left: -1rem; right: auto;">02</div>
+      <div class="order-2 md:order-1 evidence-card rounded-3xl overflow-hidden bg-gray-900 h-64 flex items-center justify-center">
+         <p class="text-gray-500 text-sm">[Sube aquí tu captura de Funciones]</p>
+      </div>
+      <div class="order-1 md:order-2">
+        <p class="text-xs uppercase tracking-widest mb-2" style="color: #A992C4;">Semana 02 — Modelado</p>
+        <h3 class="font-hero text-4xl mb-4">Funciones Reales</h3>
+        <p class="opacity-70 mb-6">Dominio, rango, inyectividad y composición. Modelando el comportamiento de sistemas a través de funciones.</p>
+        <a href="#" class="inline-block px-6 py-3 rounded-full border border-[#A992C4] text-[#A992C4] hover:bg-[#A992C4] hover:text-white transition-all text-sm font-bold">Ver Evidencia PDF</a>
+      </div>
+    </div>
+
+    <!-- Repetir estructura para semanas 3 a 13... -->
+    <div class="text-center py-20 opacity-50 italic">
+      (Agrega aquí el resto de las semanas siguiendo el mismo patrón)
+    </div>
+
+  </main>
+
+  <!-- FINAL SECTION -->
+  <footer class="py-32 px-6 text-center relative overflow-hidden">
+    <div class="glow-bg" style="width:800px; height:800px; top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <h2 class="font-hero text-4xl md:text-6xl mb-8">Cálculo <span style="color: #A992C4;">×</span> Ingeniería</h2>
+      <p class="text-xl opacity-80 leading-relaxed mb-12">
+        Cada derivada es una decisión optimizada. Cada integral, un sistema completo. La matemática no es abstracta — es el lenguaje nativo de la ingeniería de sistemas.
+      </p>
+      <p class="text-xs uppercase tracking-[0.5em] opacity-40">Matemática I • Ingeniería de Sistemas • 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
