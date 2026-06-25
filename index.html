@@ -379,13 +379,14 @@ footer{
     background:rgba(0,0,0,.75);
     backdrop-filter:blur(6px);
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     justify-content:center;
     z-index:2000;
     opacity:0;
     visibility:hidden;
     transition:.3s;
     padding:20px;
+    overflow-y:auto;
 }
 
 .overlay.show{
@@ -966,12 +967,12 @@ function abrirModal(index){
 
     modalBody.innerHTML = html;
     overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
 }
 
 function cerrarModal(){
     overlay.classList.remove('show');
-    document.body.style.overflow = '';
+   // document.body.style.overflow = '';
 }
 
 document.getElementById('modalClose').addEventListener('click', cerrarModal);
